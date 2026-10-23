@@ -74,14 +74,14 @@ function createSiteConfig(remoteConfig) {
 
     return {
         seo: {
-            titulo: 'Claudia Lourdes | Mis XV 2026',
-            descripcion: 'Mis Quince Años de Claudia Lourdes — Sábado 19 de Diciembre, 2026',
+            titulo: 'Lourdes | Mis XV 2026',
+            descripcion: 'Mis Quince Años de Lourdes — Sábado 19 de Diciembre, 2026',
             autor: 'Two Design',
             ...externalConfig.seo,
             ...normalizedRemoteConfig.seo
         },
         pareja: {
-            nombres: 'Claudia Lourdes',
+            nombres: 'Lourdes',
             fecha: '19-12-2026',
             fechaVisible: '19 · Diciembre · 2026',
             ...externalConfig.pareja,
@@ -120,7 +120,7 @@ function createSiteConfig(remoteConfig) {
             ...normalizedRemoteConfig.textos
         },
         footer: {
-            hashtag: '#MisXVClaudiaLourdes',
+            hashtag: '#MisXVLourdes',
             instagramUrl: 'https://instagram.com/rocio.fernando.boda',
             facebookUrl: 'https://facebook.com/rociofernandoboda',
             marcaTexto: 'Diseño',
@@ -1159,7 +1159,7 @@ function initRSVP() {
             const savedRecord = await saveConfirmation(payload);
             applyConfirmedState(savedRecord);
             showResultPopup(confirmationMessages[respuesta]);
-            const whatsappMessage = `RSVP Mis XV Claudia Lourdes%0ANombre: ${encodeURIComponent(payload.nombre || 'Invitado')}%0ARespuesta: ${respuesta === 'si' ? 'Sí asistiré' : 'No podré asistir'}%0APases: ${payload.cantidadConfirmada || 0}`;
+            const whatsappMessage = `RSVP Mis XV Lourdes%0ANombre: ${encodeURIComponent(payload.nombre || 'Invitado')}%0ARespuesta: ${respuesta === 'si' ? 'Sí asistiré' : 'No podré asistir'}%0APases: ${payload.cantidadConfirmada || 0}`;
             window.open(`https://wa.me/50240246973?text=${whatsappMessage}`, '_blank', 'noopener');
         } catch (error) {
             if (error && (error.code === 'RSVP_ALREADY_CONFIRMED' || error.code === 'RSVP_ALREADY_CONFIRMED_DEVICE')) {

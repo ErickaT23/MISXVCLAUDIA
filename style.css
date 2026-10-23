@@ -126,18 +126,23 @@ body:not(.portada-lock) {
 }
 
 .portada-center {
-  min-height: 100%;
+  position: relative;
+  height: 100%;
   width: 100%;
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: clamp(1rem, 4vw, 1.5rem);
   text-align: center;
+}
+
+.portada-name-container {
+  position: absolute;
+  top: 350px;
+  left: 0;
+  width: 100%;
 }
 
 .portada-main-name {
   display: block;
-  margin-top: 350px;
+  margin: 0;
+  margin-top: 60px;
   padding: 5px;
   font-family: "Great Vibes", "Cormorant Garamond", cursive;
   font-size: clamp(2.8rem, 8vw, 5rem);
@@ -153,8 +158,17 @@ body:not(.portada-lock) {
   animation: titleGlow 4.8s ease-in-out infinite, textFloatSoft 5.6s ease-in-out infinite;
 }
 
+.portada-button-container {
+  position: absolute;
+  top: calc(50% + 110px);
+  left: 0;
+  width: 100%;
+}
+
 #portada #btn-abrir {
   width: min(380px, 90vw);
+  margin: 0 auto;
+  margin-top: 70px;
   display: grid;
   justify-items: center;
   gap: clamp(1rem, 4vw, 1.45rem);
