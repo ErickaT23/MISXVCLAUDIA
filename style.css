@@ -1087,6 +1087,10 @@ span {
   padding-left: 1.2rem;
 }
 
+.timeline-content--align-left {
+  text-align: left !important;
+}
+
 .timeline-empty {
   display: block;
 }
