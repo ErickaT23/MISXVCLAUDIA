@@ -786,8 +786,18 @@ function initAutoGallery() {
     let currentIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
     if (currentIndex < 0 || currentIndex >= slides.length) currentIndex = 0;
 
-    const intervalMs = 5200;
+    const intervalMs = 2000;
     let timerId = null;
+
+    slides.forEach(slide => {
+        const image = slide.querySelector('img');
+        if (!image) return;
+
+        image.style.cursor = 'pointer';
+        image.addEventListener('click', () => {
+            window.open(image.currentSrc || image.src, '_blank', 'noopener,noreferrer');
+        });
+    });
 
     function render(index) {
         slides.forEach((slide, slideIndex) => {
