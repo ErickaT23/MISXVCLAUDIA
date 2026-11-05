@@ -70,7 +70,10 @@ function mapInvitadosToDirectory(invitados) {
 
         directory[id] = {
             nombre: String(invitado.nombre || "").trim() || "Invitado",
-            pases: Math.max(0, Number(invitado.pases) || 0),
+            pases: String(invitado.pases ?? '').trim() === ''
+                ? 10
+                : Math.max(0, Number(invitado.pases) || 0),
+            pasesFlexible: String(invitado.pases ?? '').trim() === '',
             activo
         };
     });

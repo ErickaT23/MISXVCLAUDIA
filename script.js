@@ -484,7 +484,7 @@ const InvitadoApp = {
     },
 
     renderPasesText(pases) {
-        const lugaresEl = document.querySelector('.invitado-lugares');
+        const lugaresEl = document.querySelector('.rsvp-lugares-texto');
         if (!lugaresEl) return;
 
         const template = String(SiteConfig.textos.mensajePases || '{pases} lugares');
@@ -1041,7 +1041,7 @@ function initRSVP() {
        const guestData = InvitadoApp.getData() || {};
        const maxPases = guestData.pasesFlexible
          ? 10
-         : parseInt(document.getElementById('numero-lugares')?.textContent || '1');
+         : Math.max(1, Number(guestData.pases) || 1);
       let pases = 1;
       let respuesta = null;
 
