@@ -487,6 +487,11 @@ const InvitadoApp = {
         const lugaresEl = document.querySelector('.rsvp-lugares-texto');
         if (!lugaresEl) return;
 
+        if (this.data && this.data.pasesFlexible) {
+            lugaresEl.textContent = 'Dinos cuántos lugares debemos reservar para ti.';
+            return;
+        }
+
         const template = String(SiteConfig.textos.mensajePases || '{pases} lugares');
         const withPases = template.replace('{pases}', String(pases));
         lugaresEl.textContent = pases === 1
