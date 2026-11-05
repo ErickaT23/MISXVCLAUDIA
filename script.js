@@ -265,7 +265,113 @@ const GuestConfig = {
         "8": { nombre: "Venancio Hernández", pases: 2 },
         "9": { nombre: "Godínez Hernández", pases: 3 },
         "10": { nombre: "Angélica Hernández", pases: 4 },
-        "11": { nombre: "Tomasa Hernández", pases: 5 }
+        "11": { nombre: "Tomasa Hernández", pases: 5 },
+        "12": { nombre: "Hernández Gaytan", pases: "" },
+        "13": { nombre: "Marvin Monge", pases: 4 },
+        "14": { nombre: "Ovidio Monge", pases: 4 },
+        "15": { nombre: "Olga Monge", pases: 4 },
+        "16": { nombre: "Amanda Monge", pases: 2 },
+        "17": { nombre: "Enríquez Arriaza", pases: 3 },
+        "18": { nombre: "Elmer Monge", pases: "" },
+        "19": { nombre: "Dora Monge", pases: "" },
+        "20": { nombre: "Edwin Hernández", pases: 5 },
+        "21": { nombre: "Don Chato", pases: 2 },
+        "22": { nombre: "González Hernández", pases: 4 },
+        "23": { nombre: "Alma Hernández", pases: 3 },
+        "24": { nombre: "Mónica Godínez", pases: 4 },
+        "25": { nombre: "Celeste y Jaime Calderón", pases: 2 },
+        "26": { nombre: "Osorio Enríquez", pases: 4 },
+        "27": { nombre: "Jesús Arriaza", pases: 1 },
+        "28": { nombre: "Aleyda Ortega", pases: 2 },
+        "29": { nombre: "Magaly Ortega", pases: 2 },
+        "30": { nombre: "Jorge Hernández", pases: "" },
+        "31": { nombre: "Jorge Padilla", pases: "" },
+        "32": { nombre: "Jaime Padilla", pases: "" },
+        "33": { nombre: "Juan Carlos Padilla", pases: "" },
+        "34": { nombre: "José García", pases: "" },
+        "35": { nombre: "Padilla de la Roca", pases: 4 },
+        "36": { nombre: "Maximiliano Padilla", pases: "" },
+        "37": { nombre: "Sofia Catalan", pases: 4 },
+        "38": { nombre: "Mirna Hernández", pases: "" },
+        "39": { nombre: "Félix Pérez", pases: 4 },
+        "40": { nombre: "Norma Paz", pases: 3 },
+        "41": { nombre: "Kevin Grijalva", pases: 1 },
+        "42": { nombre: "Rosa Arriaza", pases: 3 },
+        "43": { nombre: "Juan Hernández", pases: 6 },
+        "44": { nombre: "Alvarez Velloso", pases: 4 },
+        "45": { nombre: "Sandoval Herrarte", pases: 4 },
+        "46": { nombre: "Sandoval Samayoa", pases: 2 },
+        "47": { nombre: "Nolder Reynosa", pases: "" },
+        "48": { nombre: "Álvarez Herrarte", pases: 3 },
+        "49": { nombre: "Zully Carias", pases: 1 },
+        "50": { nombre: "Fredy Samayoa", pases: 2 },
+        "51": { nombre: "Raquel Padilla", pases: 3 },
+        "52": { nombre: "Miriam Alvarez", pases: 2 },
+        "53": { nombre: "Lily Téllez", pases: 4 },
+        "54": { nombre: "Carmen Julia Mendizábal", pases: "" },
+        "55": { nombre: "Damaris Téllez", pases: 2 },
+        "56": { nombre: "Ricardo Herrarte", pases: 2 },
+        "57": { nombre: "Santos Godoy", pases: 5 },
+        "58": { nombre: "Orlando Yanez", pases: "" },
+        "59": { nombre: "Gladys Flores", pases: 6 },
+        "60": { nombre: "Pineda Hernández", pases: 3 },
+        "61": { nombre: "Arnulfo Cartagena", pases: 2 },
+        "62": { nombre: "Brenda Pineda", pases: 4 },
+        "63": { nombre: "Caín Cartagena", pases: "" },
+        "64": { nombre: "Carlos Vega", pases: 2 },
+        "65": { nombre: "Víctor Hugo Martínez", pases: 3 },
+        "66": { nombre: "Telma", pases: 2 },
+        "67": { nombre: "Rubén Fernández", pases: 2 },
+        "68": { nombre: "Mingo", pases: 2 },
+        "69": { nombre: "Windy Pérez", pases: "" },
+        "70": { nombre: "Sharon Martinez", pases: 2 },
+        "71": { nombre: "Rocío Velásquez", pases: 3 },
+        "72": { nombre: "Danna Constanza", pases: 2 },
+        "73": { nombre: "Lidia Valenzuela", pases: 2 },
+        "74": { nombre: "Rosmery Lemus", pases: 3 },
+        "75": { nombre: "Justin Alvarado", pases: 2 },
+        "76": { nombre: "Sergio", pases: 2 },
+        "77": { nombre: "Jemsy Samayoa", pases: 2 },
+        "78": { nombre: "Steven Jiménez", pases: 2 },
+        "79": { nombre: "Sheily Herrera", pases: 4 },
+        "80": { nombre: "Dayana Berduo", pases: 2 },
+        "81": { nombre: "Daniela", pases: 2 },
+        "82": { nombre: "Diana Cruz", pases: 3 },
+        "83": { nombre: "Karla Gereda", pases: 5 },
+        "84": { nombre: "Fam. Hernández Lima", pases: 4 },
+        "85": { nombre: "Jennifer Lima", pases: 5 },
+        "86": { nombre: "Magaly Rivera", pases: 4 },
+        "87": { nombre: "Henry Sagastume", pases: "" },
+        "88": { nombre: "Negly Guerra", pases: 5 },
+        "89": { nombre: "Sury Guerra", pases: 3 },
+        "90": { nombre: "Ortega Solís", pases: 4 },
+        "91": { nombre: "Denis Padilla", pases: "" },
+        "92": { nombre: "Oswaldo Padilla", pases: 2 },
+        "93": { nombre: "Rolando Flores", pases: 2 },
+        "94": { nombre: "Heydi Padilla", pases: "" },
+        "95": { nombre: "Pedro Barrera", pases: "" },
+        "96": { nombre: "Flor Marroquin", pases: 2 },
+        "97": { nombre: "Yudi Ortíz", pases: 2 },
+        "98": { nombre: "Mariela Bonilla", pases: 3 },
+        "99": { nombre: "Mirta Monge", pases: 4 },
+        "100": { nombre: "Cintia Zometa", pases: 1 },
+        "101": { nombre: "Aracely Martinez", pases: 4 },
+        "102": { nombre: "María Luisa Chávez", pases: 2 },
+        "103": { nombre: "Delia Carrillo", pases: 2 },
+        "104": { nombre: "Nora Pérez", pases: 5 },
+        "105": { nombre: "Elva García", pases: 1 },
+        "106": { nombre: "Guadalupe Hernández", pases: 1 },
+        "107": { nombre: "Fam. Hernández Colindres", pases: "" },
+        "108": { nombre: "Selvin Gustavo Flores", pases: "" },
+        "109": { nombre: "Manuel Chinchilla", pases: "" },
+        "110": { nombre: "Silvia Calles Hernández", pases: "" },
+        "111": { nombre: "Jorge Hernández Polanco", pases: "" },
+        "112": { nombre: "Jaime Hernández Polanco", pases: "" },
+        "113": { nombre: "Ever Campos", pases: "" },
+        "114": { nombre: "Manuel Chinchilla", pases: 2 },
+        "115": { nombre: "Mileidy Paz", pases: 4 },
+        "116": { nombre: "Emilce Solis", pases: 4 },
+        "117": { nombre: "Eva Perdomo", pases: 5 }
     },
     invitadoDefault: { nombre: "Invitado Especial", pases: 2 },
     paramId: 'id'
@@ -792,13 +898,47 @@ function initAutoGallery() {
     const intervalMs = 2000;
     let timerId = null;
 
+    let lightbox = document.getElementById('gallery-lightbox');
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.id = 'gallery-lightbox';
+        lightbox.className = 'gallery-lightbox';
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.setAttribute('aria-label', 'Imagen ampliada');
+        lightbox.innerHTML = `
+            <button class="gallery-lightbox-close" type="button" aria-label="Cerrar imagen">&times;</button>
+            <img class="gallery-lightbox-image" alt="">
+        `;
+        document.body.appendChild(lightbox);
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('is-open');
+            document.body.classList.remove('gallery-lightbox-open');
+        };
+
+        lightbox.querySelector('.gallery-lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', event => {
+            if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeLightbox();
+        });
+    }
+
+    const lightboxImage = lightbox.querySelector('.gallery-lightbox-image');
+
     slides.forEach(slide => {
         const image = slide.querySelector('img');
         if (!image) return;
 
         image.style.cursor = 'pointer';
         image.addEventListener('click', () => {
-            window.open(image.currentSrc || image.src, '_blank', 'noopener,noreferrer');
+            lightboxImage.src = image.currentSrc || image.src;
+            lightboxImage.alt = image.alt;
+            lightbox.classList.add('is-open');
+            document.body.classList.add('gallery-lightbox-open');
+            lightbox.querySelector('.gallery-lightbox-close').focus();
         });
     });
 
