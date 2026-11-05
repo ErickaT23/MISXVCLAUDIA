@@ -1,20 +1,20 @@
 :root {
-    --bg: #f2e8dc;
-    --paper: #fffcf8;
-    --paper-strong: #fffdf9;
-    --rose: #d9b6ad;
-    --rose-dark: #8e6c61;
-    --rose-deep: #6d574b;
-    --beige: #e8d7c4;
-    --gold-1: #e8d7c4;
-    --gold-2: #b8925b;
-    --gold-3: #8b6f46;
-    --ink: #4e4138;
-    --ink-soft: #7b6a61;
-    --line: rgba(184, 146, 91, 0.26);
-    --line-soft: rgba(184, 146, 91, 0.15);
-    --shadow-card: 0 16px 36px rgba(94, 74, 64, 0.13);
-    --shadow-soft: 0 8px 24px rgba(94, 74, 64, 0.1);
+    --bg: #e8eee7;
+    --paper: #fbfcf8;
+    --paper-strong: #ffffff;
+    --rose: #b7a35a;
+    --rose-dark: #8b7631;
+    --rose-deep: #234333;
+    --beige: #d9dfd3;
+    --gold-1: #f2df91;
+    --gold-2: #c4a84d;
+    --gold-3: #8b7024;
+    --ink: #21382a;
+    --ink-soft: #637265;
+    --line: rgba(139, 112, 36, 0.3);
+    --line-soft: rgba(139, 112, 36, 0.18);
+    --shadow-card: 0 16px 36px rgba(31, 62, 43, 0.15);
+    --shadow-soft: 0 8px 24px rgba(31, 62, 43, 0.1);
     --radius-lg: 24px;
     --radius-md: 18px;
     --radius-sm: 14px;
@@ -45,9 +45,9 @@ body {
     font-family: var(--font-body);
     color: var(--ink);
     background:
-        radial-gradient(circle at 10% -8%, rgba(217, 182, 173, 0.3) 0%, rgba(242, 232, 220, 0) 42%),
-        radial-gradient(circle at 100% 0%, rgba(184, 146, 91, 0.2) 0%, rgba(242, 232, 220, 0) 36%),
-        linear-gradient(180deg, #fffdf9 0%, #f2e8dc 100%);
+        radial-gradient(circle at 10% -8%, rgba(196, 168, 77, 0.25) 0%, rgba(232, 238, 231, 0) 42%),
+        radial-gradient(circle at 100% 0%, rgba(35, 67, 51, 0.2) 0%, rgba(232, 238, 231, 0) 36%),
+        linear-gradient(180deg, #fbfcf8 0%, #e8eee7 100%);
 }
 
 .dashboard-shell {
@@ -77,7 +77,7 @@ body {
     border-radius: var(--radius-lg);
     border: 1px solid var(--line);
     background:
-        linear-gradient(135deg, rgba(255, 251, 247, 0.96) 0%, rgba(239, 226, 211, 0.74) 100%);
+        linear-gradient(135deg, rgba(251, 252, 248, 0.98) 0%, rgba(217, 223, 211, 0.82) 100%);
     box-shadow: var(--shadow-card);
 }
 
@@ -106,7 +106,7 @@ body {
     font-size: clamp(3.1rem, 7.5vw, 5rem);
     font-weight: 400;
     line-height: 0.9;
-    background: linear-gradient(120deg, #b8925b 0%, #d9b6ad 25%, #8e6c61 50%, #d9b6ad 75%, #b8925b 100%);
+    background: linear-gradient(120deg, #8b7024 0%, #f2df91 25%, #234333 50%, #f2df91 75%, #8b7024 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -162,7 +162,7 @@ body {
 }
 
 .summary-card-highlight {
-    background: linear-gradient(145deg, rgba(184, 146, 91, 0.98) 0%, rgba(139, 111, 70, 0.98) 100%);
+    background: linear-gradient(145deg, rgba(35, 67, 51, 0.98) 0%, rgba(20, 43, 31, 0.98) 100%);
     border-color: rgba(184, 146, 91, 0.42);
 }
 
