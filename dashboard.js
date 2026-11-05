@@ -1,15 +1,21 @@
 import { subscribeToConfirmations, subscribeToInvitados } from "./database.js";
 
 const guestDirectorySeed = {
-    "1": { nombre: "Valeria Soto", pases: 2 },
-    "2": { nombre: "Diego Marín", pases: 4 },
-    "3": { nombre: "Camila Rivas", pases: 3 },
-    "4": { nombre: "Javier Ponce", pases: 1 },
-    "5": { nombre: "Lucía Herrera", pases: 2 }
+    "1": { nombre: "Mis Amores", pases: 2 },
+    "2": { nombre: "Denis Hernández", pases: 3 },
+    "3": { nombre: "Angel Hernández", pases: 5 },
+    "4": { nombre: "Galicia Muller", pases: 4 },
+    "5": { nombre: "Irene Hernandez", pases: 1 },
+    "6": { nombre: "Karla Pérez", pases: 2 },
+    "7": { nombre: "Eduardo Pérez", pases: 1 },
+    "8": { nombre: "Venancio Hernández", pases: 2 },
+    "9": { nombre: "Godínez Hernández", pases: 3 },
+    "10": { nombre: "Angélica Hernández", pases: 4 },
+    "11": { nombre: "Tomasa Hernández", pases: 5 }
 };
 
 const guestDirectoriesByEvent = {
-    "misxv-maria-emilia-2026": guestDirectorySeed
+    "misxv-claudia-lourdes-2026": guestDirectorySeed
 };
 
 window.LocalGuestSeeds = {

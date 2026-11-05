@@ -255,17 +255,30 @@ function applyFooterConfig() {
 // ============================================
 const GuestConfig = {
     invitados: {
-        "1": { nombre: "Valeria Soto", pases: 2 },
-        "2": { nombre: "Diego Marín", pases: 4 },
-        "3": { nombre: "Camila Rivas", pases: 3 },
-        "4": { nombre: "Javier Ponce", pases: 1 },
-        "5": { nombre: "Lucía Herrera", pases: 2 }
+        "1": { nombre: "Mis Amores", pases: 2 },
+        "2": { nombre: "Denis Hernández", pases: 3 },
+        "3": { nombre: "Angel Hernández", pases: 5 },
+        "4": { nombre: "Galicia Muller", pases: 4 },
+        "5": { nombre: "Irene Hernandez", pases: 1 },
+        "6": { nombre: "Karla Pérez", pases: 2 },
+        "7": { nombre: "Eduardo Pérez", pases: 1 },
+        "8": { nombre: "Venancio Hernández", pases: 2 },
+        "9": { nombre: "Godínez Hernández", pases: 3 },
+        "10": { nombre: "Angélica Hernández", pases: 4 },
+        "11": { nombre: "Tomasa Hernández", pases: 5 }
     },
     invitadoDefault: { nombre: "Invitado Especial", pases: 2 },
     paramId: 'id'
 };
 
 window.GuestConfig = GuestConfig;
+
+function formatGuestName(value) {
+    return String(value || '').trim().toLocaleLowerCase('es').split(/\s+/).map((word, index) => {
+        if (word === 'y' && index > 0) return word;
+        return word.charAt(0).toLocaleUpperCase('es') + word.slice(1);
+    }).join(' ');
+}
 
 // ============================================
 // APP DE INVITADOS - Lógica reutilizable
@@ -329,7 +342,7 @@ const InvitadoApp = {
     renderSection() {
         const nombreEl = document.getElementById('nombre-invitado');
 
-        if (nombreEl) nombreEl.textContent = this.data.nombre;
+        if (nombreEl) nombreEl.textContent = formatGuestName(this.data.nombre);
         const displayPases = String(this.data && this.data.id || '') === '3B' ? 1 : this.data.pases;
         this.renderPasesText(displayPases);
     },
