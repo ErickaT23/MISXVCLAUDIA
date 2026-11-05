@@ -465,7 +465,8 @@
 
         const draft = state.editDraft || {};
         const nombre = String(draft.nombre || "").trim();
-        const pases = Number(draft.pases);
+        const pasesValue = String(draft.pases ?? '').trim();
+        const pases = pasesValue === '' ? '' : Number(pasesValue);
         const activo = Boolean(draft.activo);
 
         if (!nombre) {
@@ -473,8 +474,8 @@
             return;
         }
 
-        if (!Number.isInteger(pases) || pases < 1) {
-            setStatus("El número de pases debe ser mayor o igual a 1.", true);
+        if (pases !== '' && (!Number.isInteger(pases) || pases < 1 || pases > 10)) {
+            setStatus("El número de pases debe estar entre 1 y 10, o quedar vacío.", true);
             return;
         }
 
@@ -1234,7 +1235,8 @@
         const saveBtn = getEl("btn-save-invite");
 
         const nombre = String(nameInput && nameInput.value || "").trim();
-        const pases = Number(pasesInput && pasesInput.value);
+        const pasesValue = String(pasesInput && pasesInput.value || '').trim();
+        const pases = pasesValue === '' ? '' : Number(pasesValue);
         const activo = Boolean(activeInput && activeInput.checked);
 
         if (!nombre) {
@@ -1242,8 +1244,8 @@
             return;
         }
 
-        if (!Number.isInteger(pases) || pases < 1) {
-            setInviteFormMessage("El número de pases debe ser mayor o igual a 1.", true);
+        if (pases !== '' && (!Number.isInteger(pases) || pases < 1 || pases > 10)) {
+            setInviteFormMessage("El número de pases debe estar entre 1 y 10, o quedar vacío.", true);
             return;
         }
 

@@ -383,7 +383,7 @@ function normalizeLocalGuestsSource(source) {
         return {
           id,
           nombre: String(guest.nombre || "").trim() || "Invitado",
-          pases: Math.max(1, Number(guest.pases) || 1),
+          pases: String(guest.pases ?? '').trim() === '' ? "" : Math.max(1, Number(guest.pases) || 1),
           activo: typeof guest.activo === "undefined" ? true : Boolean(guest.activo)
         };
       })
@@ -400,7 +400,7 @@ function normalizeLocalGuestsSource(source) {
         return {
           id,
           nombre: String(guest.nombre || "").trim() || "Invitado",
-          pases: Math.max(1, Number(guest.pases) || 1),
+          pases: String(guest.pases ?? '').trim() === '' ? "" : Math.max(1, Number(guest.pases) || 1),
           activo: typeof guest.activo === "undefined" ? true : Boolean(guest.activo)
         };
       })
@@ -1113,6 +1113,23 @@ async function getInvitadoById(arg1, arg2) {
   }
 }
 
+function subscribeToInvitadoById(arg1, arg2, arg3, arg4) {
+  const parsed = parseSubscriptionArgs(arg1, arg3, arg4);
+  const guestId = String(arg2 || "").trim();
+  const safeGuestId = sanitizeFirebaseKey(guestId);
+  return onValue(
+    ref(db, getEventInvitadosPath(parsed.eventId) + "/" + safeGuestId),
+    function (snapshot) {
+      const data = snapshot.exists() && snapshot.val() && typeof snapshot.val() === "object"
+        ? snapshot.val()
+        : null;
+      if (data) data.id = String(data.id || guestId || safeGuestId);
+      parsed.onChange(data);
+    },
+    parsed.onError
+  );
+}
+
 async function createInvitado(arg1, arg2) {
   const parsed = parseEventAndPayloadArgs(arg1, arg2);
   const eventId = parsed.eventId;
@@ -1120,7 +1137,7 @@ async function createInvitado(arg1, arg2) {
 
   const id = String(payload.id || ("guest_" + Date.now())).trim() || ("guest_" + Date.now());
   const nombre = sanitizeText(payload.nombre);
-  const pases = Math.max(1, Number(payload.pases) || 1);
+  const pases = String(payload.pases ?? '').trim() === '' ? "" : Math.max(1, Number(payload.pases) || 1);
   const activo = typeof payload.activo === "undefined" ? true : Boolean(payload.activo);
 
   if (!nombre) {
@@ -1149,7 +1166,7 @@ async function updateInvitado(arg1, arg2, arg3) {
   }
 
   const nombre = sanitizeText(payload.nombre);
-  const pases = Math.max(1, Number(payload.pases) || 1);
+  const pases = String(payload.pases ?? '').trim() === '' ? "" : Math.max(1, Number(payload.pases) || 1);
   const activo = typeof payload.activo === "undefined" ? true : Boolean(payload.activo);
 
   if (!nombre) {
@@ -1188,7 +1205,7 @@ async function deleteInvitado(arg1, arg2) {
   const updatedRecord = {
     id: String(current.id || guestId),
     nombre: sanitizeText(current.nombre) || "Invitado",
-    pases: Math.max(1, Number(current.pases) || 1),
+    pases: String(current.pases ?? '').trim() === '' ? "" : Math.max(1, Number(current.pases) || 1),
     activo: false
   };
 
@@ -1705,6 +1722,7 @@ window.RSVPDatabase = {
   subscribeToWishes,
   getInvitados,
   subscribeToInvitados,
+  subscribeToInvitadoById,
   getInvitadoById,
   createInvitado,
   updateInvitado,

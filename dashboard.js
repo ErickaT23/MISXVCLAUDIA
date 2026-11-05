@@ -29,7 +29,7 @@ function resolveDashboardEventContext() {
     const externalConfig = window.config || {};
     const eventConfig = externalConfig.event || {};
     const eventIdParam = String(eventConfig.eventIdParam || "eventId").trim() || "eventId";
-    const defaultEventId = String(eventConfig.defaultEventId || "misxv-maria-emilia-2026").trim() || "misxv-maria-emilia-2026";
+    const defaultEventId = String(eventConfig.defaultEventId || "misxv-claudia-lourdes-2026").trim() || "misxv-claudia-lourdes-2026";
     const params = new URLSearchParams(window.location.search || "");
     const fromQuery = String(params.get(eventIdParam) || "").trim();
     const fromWindow = String(
@@ -562,12 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function getEffectiveGuestDirectory() {
-        if (hasRemoteGuestSource) {
-            return {
-                ...fallbackGuestDirectory,
-                ...remoteGuestDirectory
-            };
-        }
+        if (hasRemoteGuestSource) return remoteGuestDirectory;
         return fallbackGuestDirectory;
     }
 
@@ -634,7 +629,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ]);
             confirmationsState = Array.isArray(confirmations) ? confirmations : [];
             const invitadosArray = Array.isArray(invitados) ? invitados : [];
-            hasRemoteGuestSource = invitadosArray.length > 0;
+            hasRemoteGuestSource = true;
             remoteGuestDirectory = mapInvitadosToDirectory(invitadosArray);
             refreshRowsFromSources();
             updateLastSync("manual");
@@ -680,7 +675,7 @@ document.addEventListener("DOMContentLoaded", function () {
         activeEventId,
         function (invitados) {
             const invitadosArray = Array.isArray(invitados) ? invitados : [];
-            hasRemoteGuestSource = invitadosArray.length > 0;
+            hasRemoteGuestSource = true;
             remoteGuestDirectory = mapInvitadosToDirectory(invitadosArray);
             refreshRowsFromSources();
             updateLastSync("tiempo real");

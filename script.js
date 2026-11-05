@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     await hydrateSiteConfigForEvent();
     applySiteConfig();
     await InvitadoApp.init();
+    const rsvpDB = window.RSVPDatabase;
+    const eventId = String(window.currentEventId || '').trim();
+    if (rsvpDB && typeof rsvpDB.getInvitados === 'function' && typeof rsvpDB.migrateLocalGuestsToFirebase === 'function') {
+        const remoteGuests = await rsvpDB.getInvitados(eventId);
+        if (remoteGuests.length === 0) {
+            await rsvpDB.migrateLocalGuestsToFirebase(eventId, GuestConfig.invitados, { force: true });
+        }
+    }
     MusicBubble.init();
     MensajeFlota.init();
     initPortada();
@@ -398,6 +406,25 @@ const InvitadoApp = {
         this.data = remoteGuest || localGuest;
         this.renderSection();
         this.renderRSVP();
+        const rsvpDB = window.RSVPDatabase;
+        if (rsvpDB && typeof rsvpDB.subscribeToInvitadoById === 'function') {
+            rsvpDB.subscribeToInvitadoById(
+                String(window.currentEventId || '').trim(),
+                this.data.id,
+                (updatedGuest) => {
+                    if (!updatedGuest) return;
+                    this.data = {
+                        ...this.data,
+                        ...updatedGuest,
+                        pasesFlexible: String(updatedGuest.pases ?? '').trim() === ''
+                    };
+                    this.data.pases = this.data.pasesFlexible ? 10 : Math.max(1, Number(updatedGuest.pases) || 1);
+                    this.renderSection();
+                    this.renderRSVP();
+                },
+                (error) => console.warn('No se pudo sincronizar el invitado:', error)
+            );
+        }
         return this.data;
     },
 
