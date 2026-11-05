@@ -305,7 +305,8 @@ const InvitadoApp = {
             return {
                 id: safeId,
                 nombre: String(invitado.nombre || ''),
-                pases: Math.max(1, Number(invitado.pases) || 1),
+                pases: String(invitado.pases ?? '').trim() === '' ? 10 : Math.max(1, Number(invitado.pases) || 1),
+                pasesFlexible: String(invitado.pases ?? '').trim() === '',
                 activo: true
             };
         }
@@ -314,6 +315,7 @@ const InvitadoApp = {
             id: safeId,
             nombre: String(GuestConfig.invitadoDefault.nombre || ''),
             pases: Math.max(1, Number(GuestConfig.invitadoDefault.pases) || 1),
+            pasesFlexible: false,
             activo: true
         };
     },
@@ -330,7 +332,8 @@ const InvitadoApp = {
             return {
                 id: String(remoteGuest.id || guestId || 'default'),
                 nombre: String(remoteGuest.nombre || '').trim() || String(GuestConfig.invitadoDefault.nombre || ''),
-                pases: Math.max(1, Number(remoteGuest.pases) || Number(GuestConfig.invitadoDefault.pases) || 1),
+                pases: String(remoteGuest.pases ?? '').trim() === '' ? 10 : Math.max(1, Number(remoteGuest.pases) || Number(GuestConfig.invitadoDefault.pases) || 1),
+                pasesFlexible: String(remoteGuest.pases ?? '').trim() === '',
                 activo: typeof remoteGuest.activo === 'undefined' ? true : Boolean(remoteGuest.activo)
             };
         } catch (error) {
@@ -868,7 +871,10 @@ function initRSVP() {
       const paseNumero = document.getElementById('pase-numero');
       const btnMenos = document.getElementById('pase-menos');
       const btnMas = document.getElementById('pase-mas');
-      const maxPases = parseInt(document.getElementById('numero-lugares')?.textContent || '1');
+       const guestData = InvitadoApp.getData() || {};
+       const maxPases = guestData.pasesFlexible
+         ? 10
+         : parseInt(document.getElementById('numero-lugares')?.textContent || '1');
       let pases = 1;
       let respuesta = null;
 
@@ -1119,7 +1125,11 @@ function initRSVP() {
 
     const guestData = InvitadoApp.getData() || {};
     const guestId = String(guestData.id || 'default');
-    const maxAllowedCount = guestId === specialGroupId ? 1 : Math.max(1, Number(guestData.pases) || 1);
+    const maxAllowedCount = guestId === specialGroupId
+        ? 1
+        : guestData.pasesFlexible
+            ? 10
+            : Math.max(1, Number(guestData.pases) || 1);
 
     async function checkConfirmedStatusOnLoad() {
         if (previewMode) {
