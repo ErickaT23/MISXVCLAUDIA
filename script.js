@@ -1359,8 +1359,16 @@ function initRSVP() {
             const savedRecord = await saveConfirmation(payload);
             applyConfirmedState(savedRecord);
             showResultPopup(confirmationMessages[respuesta]);
-            const whatsappMessage = `RSVP Mis XV Lourdes%0ANombre: ${encodeURIComponent(payload.nombre || 'Invitado')}%0ARespuesta: ${respuesta === 'si' ? 'Sí asistiré' : 'No podré asistir'}%0APases: ${payload.cantidadConfirmada || 0}`;
-            window.open(`https://wa.me/50240246973?text=${whatsappMessage}`, '_blank', 'noopener');
+            const whatsappMessage = [
+                'RSVP Mis XV Claudia Lourdes',
+                `Nombre: ${payload.nombre || 'Invitado'}`,
+                `ID: ${payload.id}`,
+                `Respuesta: ${respuesta === 'si' ? 'Sí asistiré' : 'No podré asistir'}`,
+                `Pases asignados: ${payload.pasesAsignados}`,
+                `Cantidad confirmada: ${payload.cantidadConfirmada || 0}`
+            ].join('\n');
+            const whatsappUrl = `https://wa.me/50240246973?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
         } catch (error) {
             if (error && (error.code === 'RSVP_ALREADY_CONFIRMED' || error.code === 'RSVP_ALREADY_CONFIRMED_DEVICE')) {
                 const existingRecord = (error.existingData && error.existingData.confirmado)
